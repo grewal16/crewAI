@@ -14,7 +14,7 @@
 *   **LLM Agnostic:** Work with any LLM, supporting a wide range of models including OpenAI, Anthropic, Google Gemini, Ollama, and custom integrations.
 *   **Human-in-the-Loop:** Integrate human feedback and intervention points to guide agent workflows and ensure ethical, accurate, and aligned outcomes.
 *   **Built-in Observability & Tracing:** Monitor agent interactions, tool usage, and decision-making processes with integrations for tools like Langfuse, MLflow, Arize Phoenix, and more, for complete transparency and debugging.
-*   **Enterprise-Grade Capabilities:** Features like hallucination guardrails, agent and tool repositories, RBAC, and webhook streaming make `crewAI` ready for production environments.
+*   **Enterprise-Grade Capabilities:** Features like hallucination guardrails, agent or tool repositories, RBAC, and webhook streaming make `crewAI` ready for production environments.
 
 ## Who is this for?
 `crewAI` is ideal for:

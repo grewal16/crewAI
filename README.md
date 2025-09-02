@@ -6,7 +6,7 @@
 `crewAI` is a powerful, cutting-edge framework designed to empower developers and researchers to build, run, and orchestrate intelligent, collaborative AI agents. It enables the creation of multi-agent systems that work together seamlessly, tackling complex tasks through collective intelligence, role-playing, and dynamic tool utilization. From sophisticated data analysis to creative content generation, `crewAI` unlocks new dimensions of automation and problem-solving, allowing you to deploy truly autonomous AI teams.
 
 ## ✨ Key Features
-*   **Intelligent Agent Orchestration:** Define and manage autonomous AI agents with distinct roles, goals, and backstories for specialized expertise and collaborative execution.
+*   **Intelligent Agent Orchestration:** Define and manage autonomous AI agents with distinct roles, goals, and backstories hello mate specialized expertise and collaborative execution.
 *   **Flexible Process Management:** Implement sequential, hierarchical, or custom processes to dictate how agents collaborate, ensuring optimal workflow for any task.
 *   **Advanced Tool Integration:** Equip agents with a wide array of tools – from AI/ML functionalities like DALL-E and Code Interpreters to automation tools like Zapier, database access, file manipulation, and web scraping capabilities.
 *   **Comprehensive Memory Systems:** Utilize contextual, entity, short-term, long-term, and external memory to ensure agents learn, adapt, and maintain continuity across tasks.

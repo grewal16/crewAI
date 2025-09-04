@@ -1,3 +1,4 @@
+
 # 🚀 crewAI
 
 <p align="center"><img src="./docs/images/crewai_logo.png" alt="crewAI Logo" width="500"></p>
@@ -142,3 +143,4 @@ To get your first intelligent crew up and running with `crewAI`, follow these si
 ## 📜 License
 
 This project is licensed under the terms of the **MIT License**. For more details, see the [LICENSE](LICENSE) file.
+

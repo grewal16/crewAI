@@ -1,12 +1,17 @@
+
 # 🚀 CrewAI: Orchestrating Intelligent Autonomous Agents
 
-<p align="center"><img src="./docs/images/crewai_logo.png" alt="CrewAI Logo" width="500"></p>
+
+# 🚀 crewAI
+
+<p align="center"><img src="./docs/images/crewai_logo.png" alt="crewAI Logo" width="500"></p>
 
 Unleash the full potential of collaborative AI with CrewAI – a cutting-edge framework designed to effortlessly orchestrate intelligent autonomous agents. Go beyond single-agent interactions and empower your applications with multi-agent systems that work together, leveraging specialized roles, shared knowledge, and dynamic workflows to tackle complex problems with unparalleled efficiency and precision.
 
 CrewAI transforms your vision of autonomous AI into reality, enabling seamless collaboration, robust decision-making, and superior output for any challenge.
 
 ## Short Description
+
 
 CrewAI is a powerful, extensible framework for building and managing multi-agent AI systems. It provides the foundational components to define agents with distinct roles, goals, and backstories, assign them complex tasks, and orchestrate their collaboration through flexible processes. With built-in support for various LLMs, advanced memory management, Retrieval Augmented Generation (RAG), tool integration, and observability, CrewAI empowers developers to create sophisticated, intelligent workflows that adapt and learn.
 
@@ -74,13 +79,15 @@ graph TD
 
     Task_Completion --> Crew_Instance;
     Crew_Instance --> Final_Result["Final Result"];
+
 ```
 
 ## ⚡ Quick Start Guide
 
 To get started with CrewAI, follow these simple steps:
 
-1.  **Install CrewAI:**
+
+1.  **Install `crewAI`**:
     ```bash
     pip install crewai
     ```
@@ -88,45 +95,63 @@ To get started with CrewAI, follow these simple steps:
 2.  **Define your Agents, Tasks, and Crew:**
     Create a Python file (e.g., `my_crew.py`) and define your components:
 
+
     ```python
     from crewai import Agent, Task, Crew, Process
+    from langchain_openai import ChatOpenAI
+
+    # Instantiate your LLM
+    llm = ChatOpenAI(model="gpt-4o", temperature=0.7)
 
     # Define your agents
     researcher = Agent(
         role='Senior Research Analyst',
+
         goal='Uncover groundbreaking insights on {topic}',
         backstory='A meticulous researcher with a knack for deep dives.',
+
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     writer = Agent(
+
         role='Content Creator',
         goal='Craft compelling articles on {topic}',
         backstory='A creative wordsmith, adept at engaging narratives.',
+
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # Define your tasks
     task1 = Task(
+
         description='Identify the top 5 emerging trends in AI for the past year related to {topic}.',
+
         agent=researcher
     )
 
     task2 = Task(
+
         description='Write a blog post summarizing these 5 trends, highlighting their impact.',
+
         agent=writer,
         context=[task1]
     )
 
     # Instantiate your crew
+
     my_crew = Crew(
+
         agents=[researcher, writer],
         tasks=[task1, task2],
         process=Process.sequential, # Or Process.hierarchical
         verbose=2 # Outputs more detailed logs
     )
+
 
     # Kickoff the crew's work
     result = my_crew.kickoff(inputs={'topic': 'Large Language Models'})

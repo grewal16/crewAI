@@ -1,142 +1,134 @@
-# 🚀 CrewAI: Orchestrating Autonomous AI Agents for Unrivaled Collaboration
+# 🚀 crewAI
 
-<p align="center"><img src="./docs/images/crewai_logo.png" alt="CrewAI Logo" width="500"></p>
+<p align="center"><img src="./docs/images/crewai_logo.png" alt="crewAI Logo" width="300"></p>
 
 ## Short Description
-CrewAI is a revolutionary open-source framework designed for orchestrating role-playing, autonomous AI agents. It empowers developers to build, manage, and scale intelligent agent systems that collaborate seamlessly, leveraging specialized skills, shared goals, and powerful tools to tackle complex tasks. With CrewAI, you're not just building AI; you're building a highly efficient, collaborative AI ecosystem.
+crewAI is a powerful and intuitive open-source framework meticulously designed for orchestrating intelligent, autonomous AI agents. It empowers developers to build sophisticated multi-agent systems that seamlessly collaborate, execute dynamic tasks, and integrate with diverse tools, transforming complex workflows into efficient, automated processes.
 
 ## ✨ Key Features
-*   **Multi-Agent Orchestration:** Define and manage a "crew" of specialized AI agents, each with distinct roles, goals, and backstories, fostering advanced teamwork.
-*   **Flexible Task Management:** Assign granular tasks with clear objectives, enabling agents to execute responsibilities effectively within a structured workflow.
-*   **Dynamic Workflow Execution:** Implement sophisticated processes, from sequential hand-offs to complex hierarchical structures, adapting to the task's demands.
-*   **Advanced Memory Systems:** Equip agents with diverse memory capabilities including short-term, long-term, contextual, and external memory, allowing for cumulative learning and informed decision-making.
-*   **Seamless Tool Integration:** Integrate a vast array of custom and predefined tools (e.g., web search, file operations, database queries, automation, AI/ML tools, multimodal capabilities) to extend agents' capabilities.
-*   **Retrieval Augmented Generation (RAG):** Connect agents to external knowledge bases and vector stores (like ChromaDB and Qdrant) for up-to-date, accurate, and contextually relevant information retrieval.
-*   **Customizable LLM Support:** Leverage any Large Language Model, from OpenAI's GPT series to open-source models like Llama3 via Ollama, ensuring flexibility and cutting-edge performance.
-*   **Comprehensive Observability:** Monitor agent activities, task execution, and system performance through various integrations, ensuring transparency and debuggability.
-*   **Robust CLI & Enterprise Features:** Streamline development, deployment, and management with a powerful Command-Line Interface, complemented by enterprise-grade features for security, team management, and integrations.
+*   **Intelligent Agent Orchestration:** Define agents with distinct roles, goals, and backstories to foster specialized collaboration.
+*   **Flexible Process Management:** Supports both sequential and hierarchical task execution, allowing for intricate workflow designs.
+*   **Extensible Tool Integration:** Connects with a rich ecosystem of tools for diverse functionalities including web scraping, data access, automation, and more.
+*   **Advanced Memory Management:** Implement contextual, entity, short-term, and long-term memory to enable deeper, more persistent agent intelligence.
+*   **Retrieval Augmented Generation (RAG):** Integrate custom knowledge bases to ground agents' responses in specific, factual data, minimizing hallucinations.
+*   **LLM Agnostic:** Compatible with various Large Language Models (LLMs) such as OpenAI, Anthropic, Google Gemini, Ollama, and custom models.
+*   **Robust Guardrails:** Incorporate built-in hallucination detection and configurable output formatting to ensure reliable and aligned agent behavior.
+*   **Comprehensive Observability & Evaluation:** Gain deep insights into agent performance, trace execution, and evaluate outcomes for continuous improvement.
+*   **Developer-Friendly CLI:** Streamline project setup, deployment, and management with an intuitive command-line interface.
 
 ## Who is this for?
-CrewAI is built for **AI developers, solution architects, data scientists, researchers, and engineering teams** who are:
-*   Building sophisticated, autonomous AI applications.
-*   Automating complex workflows that require collaborative intelligence.
-*   Developing next-generation AI products and services.
-*   Seeking to integrate advanced AI capabilities into existing enterprise systems.
-*   Experimenting with multi-agent systems and agentic AI.
-
-If you envision a world where AI agents don't just react but proactively collaborate to achieve ambitious goals, CrewAI is your foundation.
+crewAI is built for visionaries who want to push the boundaries of AI. This includes:
+*   **AI Engineers & Developers:** Crafting next-generation multi-agent applications.
+*   **Researchers:** Exploring complex agentic collaboration patterns and workflows.
+*   **Data Scientists:** Automating intricate analytical tasks and data pipelines.
+*   **Organizations:** Seeking to deploy robust, scalable, and intelligent automation solutions in production environments.
 
 ## Technology Stack & Architecture
-CrewAI is built predominantly in **Python**, leveraging its rich ecosystem for AI and machine learning.
+crewAI is built on a robust and modern stack, primarily leveraging Python for its flexibility and extensive AI/ML ecosystem.
 
-*   **Core:** Python 3.x
-*   **AI Framework:** Custom multi-agent orchestration logic, task management, and communication protocols.
-*   **LLMs:** Integrates with various LLM providers (e.g., OpenAI, Anthropic, Google Gemini, Ollama for local models) allowing for flexible model selection.
-*   **Memory:** Utilizes SQLite for internal memory persistence and supports integration with external memory solutions.
-*   **RAG (Retrieval Augmented Generation):** Integrates with vector databases such as ChromaDB and Qdrant for external knowledge management.
-*   **Tooling:** Supports diverse tools for interaction with external APIs, file systems, databases, web scraping (e.g., Apify, Multion, Firecrawl, Selenium), and specific AI/ML functionalities (e.g., DALL-E, Code Interpreter).
-*   **CLI:** Built with a robust Command-Line Interface for project scaffolding, development, testing, and deployment.
-*   **Observability:** Integrations with popular platforms like Langfuse, MLflow, OpenLit, Portkey, Weave, and more for comprehensive monitoring and tracing.
-*   **Project Structure:** Modular design with clear separation of concerns for agents, tasks, crews, flows, memory, and tools.
+*   **Core Language:** Python
+*   **Data Validation & Modeling:** Pydantic
+*   **Vector Databases (for RAG):** ChromaDB, Qdrant
+*   **Memory Persistence:** SQLite
+*   **LLM Integrations:** OpenAI, Anthropic, Google (Gemini models), Ollama, and custom LLMs.
+*   **Tooling:** Integrates with a wide range of external tools, often via Langchain/Langgraph adapters.
+*   **CLI:** Built with a user-friendly command-line interface for efficient development.
 
 ## 📊 Architecture & Database Schema
 
-CrewAI's architecture is designed for modularity and scalability, enabling complex interactions between specialized AI components.
+The core architecture of crewAI centers around a collaborative multi-agent system, dynamically orchestrating tasks to achieve complex goals.
 
 ```mermaid
 graph TD
-    A[User Input / System Trigger] --> B{CLI / API Interface};
-    B --> C[Flow Orchestrator];
-    C -- Manages Workflows --> D[Crew];
-    D -- Delegates to --> E[Agents];
-    E -- Performs --> F[Tasks];
-    E -- Uses Capabilities --> G[Tools];
-    E -- Interacts with --> H[LLM];
-    E -- Accesses --> I[Memory System];
-    I -- Contextual, Entity, Short, Long-Term --> J(SQLite / External Stores);
-    E -- Consults --> K[Knowledge Bases];
-    K -- Powered by --> L[RAG Clients];
-    L -- e.g. --> L1(ChromaDB);
-    L -- e.g. --> L2(Qdrant);
-    F -- Can utilize --> G;
-    F -- Can utilize --> H;
-    F -- Can utilize --> I;
-    F -- Can utilize --> K;
-    C -- Provides --> M[Observability & Logging];
-    M --> N(Tracing & Metrics);
+    A[User Goal/Input] --> B(The Crew: Orchestrates);
+    B -- Defines & Manages --> C(Agents: Roles & Goals);
+    C -- Assigns & Executes --> D[Tasks: Steps to Goal];
+    D -- Utilize --> E(Tools: External Capabilities);
+    C -- Accesses --> F(Memory: Contextual, Entity, Long/Short Term);
+    C -- Consults --> G(Knowledge Bases: RAG);
+    E, F, G --> H(LLMs: Reasoning & Generation);
+    H --> D;
+    D --> B;
+    B --> I(Final Output/Result);
 ```
+
+This diagram illustrates the flow: User inputs a goal, which is picked up by the **Crew**. The Crew orchestrates **Agents** (each with specific roles and goals) to perform **Tasks**. These Tasks may **Utilize Tools** for external interactions, and Agents can **Access Memory** (contextual, short-term, long-term) and query **Knowledge Bases (RAG)** for information. All these components interact with **LLMs** for reasoning and generation, ultimately leading to a **Final Output**.
 
 ## ⚡ Quick Start Guide
 
-Get your first CrewAI project up and running in no time!
+Get your first crewAI project up and running in minutes!
 
-1.  **Install CrewAI:**
+1.  **Installation:**
+
     ```bash
     pip install crewai
     ```
-
-2.  **Create Your First Crew Project:**
-    Use the CLI to scaffold a new project:
+    or, if you prefer poetry:
     ```bash
-    crewai create crew my_marketing_crew
-    cd my_marketing_crew
+    poetry add crewai
     ```
 
-3.  **Define Your Agents and Tasks:**
-    Edit the generated `crew.py`, `config/agents.yaml`, and `config/tasks.yaml` files to define your crew's roles, goals, and the tasks they'll perform.
+2.  **Basic Usage Example:**
+    Set your OpenAI API key or configure another LLM of your choice.
 
-    A minimal `crew.py` example:
     ```python
+    import os
     from crewai import Agent, Task, Crew, Process
+    from langchain_openai import ChatOpenAI
 
-    # Define your agents with roles and goals
+    # Set up your environment variables
+    # os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"
+
+    # Define your LLM (using OpenAI as an example)
+    llm = ChatOpenAI(model="gpt-4o")
+
+    # Define your agents
     researcher = Agent(
         role='Senior Research Analyst',
-        goal='Uncover groundbreaking insights on {topic}',
-        backstory='A seasoned analyst with a knack for deep research...',
+        goal='Uncover groundbreaking insights on a given topic',
+        backstory='An expert in data analysis and market trends, capable of distilling complex information into actionable insights.',
+        llm=llm,
         verbose=True,
         allow_delegation=False
     )
+
     writer = Agent(
         role='Content Strategist',
-        goal='Craft compelling content on {topic}',
-        backstory='Known for elegant and persuasive writing...',
+        goal='Craft compelling and engaging narratives based on research findings',
+        backstory='A skilled storyteller with a knack for transforming dry data into captivating articles and reports.',
+        llm=llm,
         verbose=True,
         allow_delegation=False
     )
 
     # Define your tasks
-    task1 = Task(
-        description='Investigate the latest trends in {topic}.',
-        agent=researcher
+    research_task = Task(
+        description='Investigate the latest AI advancements, focusing on generative models and their real-world applications.',
+        agent=researcher,
+        expected_output='A detailed report on AI advancements, including key technologies and applications.'
     )
-    task2 = Task(
-        description='Write a detailed report based on the research findings.',
+
+    write_report_task = Task(
+        description='Compose an engaging and informative report on AI advancements for a tech-savvy audience, drawing from the research findings.',
         agent=writer,
-        context=[task1]
+        context=[research_task],
+        expected_output='A comprehensive, well-structured report with an introduction, key findings, and a conclusion.'
     )
 
     # Instantiate your crew
-    crew = Crew(
+    project_crew = Crew(
         agents=[researcher, writer],
-        tasks=[task1, task2],
-        process=Process.sequential,
-        verbose=2
+        tasks=[research_task, write_report_task],
+        process=Process.sequential, # Can also be Process.hierarchical
+        verbose=True,
     )
 
-    # Kickoff the crew to start the process
-    result = crew.kickoff(inputs={'topic': 'Artificial Intelligence in Healthcare'})
+    # Kickoff the crew
+    print("🚀 Kicking off the AI Research & Report Crew...\n")
+    result = project_crew.kickoff(inputs={'topic': 'Artificial Intelligence'})
+    print("\n--- Final Report ---\n")
     print(result)
     ```
 
-4.  **Run Your Crew:**
-    Execute your crew from the command line:
-    ```bash
-    python main.py
-    ```
-    (Or directly run your script if you defined the crew setup within it.)
-
-For more detailed guides and advanced configurations, please refer to the official [CrewAI Documentation](https://www.crewai.com/docs).
-
 ## 📜 License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

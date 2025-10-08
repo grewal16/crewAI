@@ -1,139 +1,101 @@
-# 🚀 CrewAI: Orchestrate Autonomous AI Agents with Collaborative Intelligence
+# 🚀 CrewAI
 
-<p align="center"><img src="./docs/images/crewai_logo.png" alt="CrewAI Logo" width="500"></p>
-
-<p align="center">
-  <a href="https://github.com/grewal16/crewAI/stargazers"><img src="https://img.shields.io/github/stars/grewal16/crewAI?style=for-the-badge" alt="GitHub stars"></a>
-  <a href="https://github.com/grewal16/crewAI/network/members"><img src="https://img.shields.io/github/forks/grewal16/crewAI?style=for-the-badge" alt="GitHub forks"></a>
-  <a href="https://github.com/grewal16/crewAI/issues"><img src="https://img.shields.io/github/issues/grewal16/crewAI?style=for-the-badge" alt="GitHub issues"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/github/license/grewal16/crewAI?style=for-the-badge" alt="GitHub license"></a>
-</p>
+<p align="center"><img src="docs/images/crewai_logo.png" alt="CrewAI Logo" width="500"></p>
 
 ## Short Description
-CrewAI is an innovative framework designed for orchestrating role-playing, autonomous AI agents to collaboratively solve complex tasks. It empowers developers to build sophisticated multi-agent systems that can reason, plan, and execute tasks by leveraging specialized tools and shared knowledge, transforming monolithic AI applications into dynamic, collaborative "crews."
+Revolutionizing AI Agent Orchestration, CrewAI empowers you to define, assign roles, and choreograph autonomous AI agents to collaboratively solve complex tasks. It transforms intricate workflows into streamlined, efficient "crews," enabling intelligent collaboration and powerful problem-solving.
 
 ## 🛡️ Project Health & Status
-CrewAI is in active and robust development, demonstrated by comprehensive unit and integration tests (`tests/` directory) and a structured Continuous Integration pipeline via GitHub Actions (`.github/workflows/`). The presence of detailed issue templates and security policies further highlights a commitment to stability and maintainability. This project is built for reliability, ensuring a solid foundation for your AI-powered solutions.
+CrewAI is in active development and maintained with a strong focus on stability and reliability. It features robust continuous integration through GitHub Actions, ensuring consistent code quality with dedicated linting, security checks, and extensive test coverage for all core functionalities. This rigorous approach guarantees a stable and trustworthy foundation for your multi-agent AI initiatives.
 
 ## ✨ Key Features
-*   **Intelligent Agent Orchestration:** Define roles, goals, and backstories for agents, enabling them to communicate, delegate, and collaborate.
-*   **Flexible Task Management:** Assign tasks to agents with customizable tools and context, supporting both sequential and hierarchical workflows.
-*   **Advanced Memory & Knowledge Integration:** Incorporate short-term, long-term, contextual, and external memory. Seamlessly integrate Retrieval Augmented Generation (RAG) with vector databases like ChromaDB and Qdrant.
-*   **Tool Integration:** Equip agents with a wide array of tools, from web scraping (Scrapegraph, Selenium) and automation (Zapier) to specialized AI/ML functionalities (DALL-E, Code Interpreter) and diverse database interactions (MySQL, PostgreSQL, Snowflake).
-*   **Observable Execution:** Gain deep insights into agent reasoning, tool usage, and task execution through integrated observability tools and tracing capabilities.
-*   **Human-in-the-Loop (HITL) Support:** Design workflows that allow for human intervention and feedback, ensuring controlled and refined agent outputs.
-*   **CLI for Rapid Development:** Bootstrap and manage crews, flows, and tools efficiently from the command line.
-*   **LLM Agnostic:** Work with various Large Language Models, offering flexibility in choosing the best model for your needs.
+*   **Multi-Agent Orchestration:** Seamlessly define and manage dynamic teams of AI agents working together towards a common goal.
+*   **Role-Based AI Agents:** Empower agents with distinct roles, specific goals, and rich backstories for specialized expertise and autonomous decision-making.
+*   **Flexible Task Management:** Assign tasks with clear descriptions, human input requirements, and defined expected outputs.
+*   **Advanced Memory Management:** Leverage contextual, entity, short-term, and long-term memory capabilities, allowing agents to retain and recall information intelligently across interactions and sessions.
+*   **Dynamic Tool Integration:** Easily integrate a wide array of custom and third-party tools, from web scraping and file operations to advanced AI/ML models, extending agent capabilities.
+*   **Retrieval Augmented Generation (RAG):** Built-in support for sophisticated RAG workflows using vector databases like ChromaDB and Qdrant to enhance agents' knowledge with external data.
+*   **Adaptive Workflow Processes:** Support for both sequential and hierarchical task execution, allowing for complex decision-making and delegation within crews.
+*   **Robust Guardrails & Security:** Implement hallucination guardrails and other security measures to ensure agents operate within defined boundaries and maintain data integrity.
+*   **Extensible LLM Support:** Integrate with various Large Language Models, offering flexibility and power to tailor your AI crews.
+*   **CLI & Developer-Friendly APIs:** Utilize a comprehensive Command Line Interface and intuitive APIs for easy setup, configuration, and interaction.
+*   **Event-Driven Tracing & Observability:** Gain deep insights into agent interactions, decision flows, and task execution through an event bus and tracing mechanisms.
+*   **Experimental Evaluation Framework:** Tools to evaluate agent performance, reasoning, and output quality to continuously improve your AI workflows.
+*   **Flow Visualization:** Visualize agent flows and interactions with generated HTML diagrams.
 
 ## Who is this for?
-CrewAI is engineered for **AI/ML Engineers, Data Scientists, Software Architects, and innovative developers** who are looking to:
-*   Automate complex, multi-step workflows requiring advanced reasoning.
-*   Build next-generation applications leveraging the power of collaborative AI.
-*   Experiment with and deploy advanced multi-agent systems in a structured and scalable manner.
-*   Enhance existing systems with intelligent automation and decision-making capabilities.
+CrewAI is designed for **AI/ML Developers**, **Software Engineers**, and **Researchers** looking to build, deploy, and scale advanced multi-agent AI systems. It's ideal for those who need to automate complex business processes, perform sophisticated data analysis, generate creative content, conduct extensive research, or create intelligent autonomous systems that require collaborative problem-solving.
 
 ## Technology Stack & Architecture
 *   **Core Language:** Python
-*   **Package Management:** Poetry (`pyproject.toml`)
-*   **LLM Integrations:** Designed to be LLM-agnostic, with explicit support for OpenAI, Google Gemini, and Ollama (as indicated by test cassettes).
-*   **Vector Databases (RAG):** ChromaDB and Qdrant for managing and retrieving contextual knowledge.
-*   **Database Interactions:** Supports various SQL databases (MySQL, PostgreSQL, Snowflake) and NoSQL (MongoDB) through specialized tools.
-*   **Asynchronous Operations:** Leverages asynchronous programming for efficient task execution.
-*   **CLI:** Built with a powerful command-line interface for project scaffolding and management.
-*   **Testing:** Pytest for comprehensive testing, ensuring code quality and reliability.
-*   **CI/CD:** GitHub Actions for automated testing and workflow management.
+*   **Package Management:** Poetry (`pyproject.toml`, `uv.lock`)
+*   **LLMs:** Integrates with various Large Language Models (e.g., OpenAI, Gemini, Ollama)
+*   **Vector Databases:** ChromaDB, Qdrant (for RAG)
+*   **Testing Framework:** Pytest (extensive test suite)
+*   **CI/CD:** GitHub Actions
+*   **Persistence:** SQLite (for local memory/flow persistence)
+*   **Diagramming:** Mermaid (for architectural visualization)
 
 ## 📊 Architecture & Database Schema
-
-CrewAI's architecture centers around a dynamic orchestration of intelligent agents. The system leverages an `EventBus` to manage interactions, enabling seamless collaboration and observability across components. Agents are equipped with `Memory` and a `Knowledge Base` to inform their decision-making and task execution using various `Tools`.
+CrewAI enables flexible multi-agent architectures where agents collaborate using various tools, memory systems, and RAG capabilities, all orchestrated by a central crew and observable via an event bus.
 
 ```mermaid
 graph TD
-    User["User (CLI / API Request)"] --> Kickoff["Kickoff Crew (Initial Input)"];
-
-    subgraph Crew Orchestration
-        Kickoff --> Crew["Crew (Orchestrator)"];
-        Crew --> ManagerAgent["Manager Agent (Delegates Tasks)"];
-        ManagerAgent --> Agent["Agent (Specialized Role)"];
-        Agent -- "Executes Task" --> Task["Task (Specific Goal)"];
-        Task -- "Requires Capability" --> Tool["Tool (External Capability / Function)"];
-        Tool -- "Output" --> Task;
-        Task -- "Result" --> Agent;
-        Agent -- "Collaboration / Delegation" --> ManagerAgent;
-        ManagerAgent -- "Aggregates Results" --> Crew;
-    end
-
-    subgraph Data & Knowledge
-        Agent -- "Accesses / Stores" --> Memory["Memory (Short-term, Long-term, Contextual)"];
-        Agent -- "Retrieves Knowledge" --> KnowledgeBase["Knowledge Base (RAG/Vector DB: ChromaDB, Qdrant)"];
-        KnowledgeBase --> ExternalDataSources[("External Data Sources (PDFs, CSVs, Web, Databases)")];
-    end
-
-    subgraph System Utilities
-        Crew --> EventBus["Event Bus (Inter-component Communication)"];
-        EventBus --> Observability["Observability (Tracing, Metrics, Logs)"];
-        Agent --> LLM["LLM (Core Reasoning & Generation)"];
-        Task -- "Ensures Quality" --> Guardrails["Guardrails (Hallucination, Output Format)"];
-    end
-
-    Crew --> FinalOutput["Final Output"];
-    FinalOutput --> User;
-    LLM --> Tool;
+    A["User/Application"] --> B["Crew (Orchestrator)"];
+    B --> C["Agent 1 (Role/Goal)"];
+    B --> D["Agent 2 (Role/Goal)"];
+    C --> E["Task 1"];
+    D --> F["Task 2"];
+    E --> G["Tool 1"];
+    F --> H["Tool 2"];
+    C --> I["LLM Connection"];
+    D --> I;
+    C -- "Accesses" --> J["Memory (Contextual, Entity, LTM)"];
+    D -- "Accesses" --> J;
+    J --> K["Vector DB (Chroma, Qdrant)"];
+    J --> L["SQLite Storage"];
+    B --> M["Event Bus"];
+    M --> N["Tracing & Logging"];
+    E --> O["Task Output"];
+    F --> O;
+    O --> B;
+    B --> P["Final Crew Output"];
 ```
 
 ## ⚙️ Configuration & Deployment
-CrewAI applications are highly configurable. You'll typically define your agents and tasks in Python files or YAML configurations.
-
-1.  **Environment Variables:** Configure your LLM API keys and other external service credentials as environment variables (e.g., `OPENAI_API_KEY`, `SERPER_API_KEY`).
-2.  **Install Dependencies:** Use Poetry for dependency management:
-    ```bash
-    poetry install
-    ```
-3.  **Bootstrap a New Project:**
-    ```bash
-    crewai create crew my_awesome_crew
-    cd my_awesome_crew
-    ```
-4.  **Deployment:** Deploy your crew to various platforms (e.g., as an API endpoint, a serverless function) using the CLI's `deploy` command, which integrates with platforms like CrewAI+.
+CrewAI is highly configurable, primarily through environment variables and dedicated configuration files.
+To set up your environment:
+1.  **Environment Variables:** Define necessary API keys and settings (e.g., `OPENAI_API_KEY`, `TAVILY_API_KEY`) in a `.env` file at your project's root.
+2.  **CLI Configuration:** The `crewai` CLI provides commands for managing and configuring your projects and deployments.
+3.  **Deployment Options:** CrewAI supports various deployment strategies, from local execution to cloud-based services. Refer to the extensive documentation in the `docs/en/enterprise/guides/deploy-crew.mdx` for detailed guidance on deploying your crews in enterprise environments.
 
 ## ⚡ Quick Start Guide
+Get your first multi-agent crew up and running in no time!
 
-To get started with CrewAI, follow these simple steps:
+```bash
+# 1. Install Poetry (recommended for dependency management)
+pip install poetry
 
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/grewal16/crewAI.git
-    cd crewAI
-    ```
+# 2. Clone the CrewAI repository
+git clone https://github.com/grewal16/crewAI.git
+cd crewAI
 
-2.  **Install Poetry (if you don't have it):**
-    ```bash
-    pip install poetry
-    ```
+# 3. Install project dependencies
+poetry install
 
-3.  **Install Dependencies:**
-    ```bash
-    poetry install
-    ```
+# 4. Set up your environment variables
+# Create a `.env` file in your project's root with essential API keys, e.g.:
+# OPENAI_API_KEY='YOUR_OPENAI_API_KEY'
+# TAVILY_API_KEY='YOUR_TAVILY_API_KEY'
 
-4.  **Activate Virtual Environment:**
-    ```bash
-    poetry shell
-    ```
-
-5.  **Set Up Environment Variables:**
-    Create a `.env` file in your project root and add your LLM API key (e.g., for OpenAI):
-    ```
-    OPENAI_API_KEY='YOUR_API_KEY_HERE'
-    ```
-
-6.  **Run an Example Crew:**
-    Explore the `src/crewai/cli/templates/crew` directory for a basic crew template. You can run it via the CLI:
-    ```bash
-    crewai run --crew my_awesome_crew
-    ```
-
-For more detailed guides and advanced configurations, refer to the `docs/` directory.
+# 5. Run a sample crew
+# You can use the CLI to initialize a new crew and run it:
+poetry run crewai init
+cd your_new_crew_project
+python main.py
+# Or directly run an example from the repository:
+python src/crewai/cli/templates/crew/main.py
+```
 
 ## 📜 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
